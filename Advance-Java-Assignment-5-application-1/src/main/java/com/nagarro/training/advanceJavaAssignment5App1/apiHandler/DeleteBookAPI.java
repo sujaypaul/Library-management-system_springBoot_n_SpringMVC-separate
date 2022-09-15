@@ -1,4 +1,5 @@
 package com.nagarro.training.advanceJavaAssignment5App1.apiHandler;
+
 import static com.nagarro.training.advanceJavaAssignment5App1.apiHandler.API.*;
 
 import java.util.HashMap;
@@ -8,12 +9,11 @@ import org.springframework.web.client.RestTemplate;
 
 public class DeleteBookAPI {
 
-	private static RestTemplate restTemplate = new RestTemplate();
+	public void deleteBook(String code) {
 
-	public static void deleteBook(String code) {
-//		Map<String, String> param = new HashMap<>();
-//		param.put("id", code);
-//		restTemplate.delete(DELETE_BOOK_API, param);
-//		
+		RestTemplate restTemplate = new RestTemplate();
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("id", code);
+		restTemplate.delete(DELETE_BOOK_API, params);
 	}
 }

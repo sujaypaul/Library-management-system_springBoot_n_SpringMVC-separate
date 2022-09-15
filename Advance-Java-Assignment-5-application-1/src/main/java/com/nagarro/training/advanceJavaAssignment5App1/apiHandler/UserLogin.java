@@ -12,9 +12,10 @@ import com.nagarro.training.advanceJavaAssignment5App1.model.User;
 
 public class UserLogin {
 	
-	private static RestTemplate restTemplate = new RestTemplate();
 
 	static User getUser(String uname) {
+		
+		RestTemplate restTemplate = new RestTemplate();
 		
 		Map<String, String> param = new HashMap<>();
 		param.put("id", uname);

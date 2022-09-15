@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.WebRequest;
 
 import com.nagarro.training.advanceJavaAssignment5App1.apiHandler.AddBookAPI;
-import com.nagarro.training.advanceJavaAssignment5App1.apiHandler.AllBooksAPI;
 import com.nagarro.training.advanceJavaAssignment5App1.apiHandler.AuthorsAPI;
+import com.nagarro.training.advanceJavaAssignment5App1.apiHandler.BookByIdAPI;
 import com.nagarro.training.advanceJavaAssignment5App1.model.Author;
 import com.nagarro.training.advanceJavaAssignment5App1.model.Book;
-import com.nagarro.training.advanceJavaAssignment5App1.model.User;
 
 @Controller
 public class AddBookController {
@@ -29,7 +28,8 @@ public class AddBookController {
 			return "redirect:login";
 		}
 
-		List<Author> authors = AuthorsAPI.getAuthors();
+		AuthorsAPI authorAPI = new AuthorsAPI();
+		List<Author> authors = authorAPI.getAuthors();
 		model.addAttribute("authors", authors);
 
 		return "addBook";
@@ -45,8 +45,22 @@ public class AddBookController {
 
 	@PostMapping(value = "add")
 	public String update(Model model,@ModelAttribute("book") @Valid Book book) {
+		BookByIdAPI bookById = new BookByIdAPI();
 		
-		AddBookAPI.addBook(book);
+		
+		if(bookById.getBook(book.getCode()) != null) {
+			model.addAttribute("error", "Book with code "+book.getCode()+" already present");
+			
+			
+			AuthorsAPI authorAPI = new AuthorsAPI();
+			List<Author> authors = authorAPI.getAuthors();
+			model.addAttribute("authors", authors);
+			return "addBook";
+		}
+		AddBookAPI addBookAPI = new AddBookAPI();
+		addBookAPI.addBook(book);
+		
+		System.out.println("book with code "+book.getCode()+" was added.");
 
 		return "redirect:home";
 	}

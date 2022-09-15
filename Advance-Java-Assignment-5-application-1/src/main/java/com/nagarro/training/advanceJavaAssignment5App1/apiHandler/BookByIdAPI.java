@@ -6,22 +6,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.nagarro.training.advanceJavaAssignment5App1.model.Book;
 
 public class BookByIdAPI {
 
-	private static RestTemplate restTemplate = new RestTemplate();
 
-	public static Book getBook(String code) {
-		Map<String, String> param = new HashMap<>();
-		param.put("id", code);
+	public Book getBook(String code) {
+		
+		try {
+			RestTemplate restTemplate = new RestTemplate();
 
-		restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-		Book book = restTemplate.getForObject(GET_BOOK_BY_ID_API, Book.class, param);
+			Map<String, String> param = new HashMap<>();
+			param.put("id", code);
 
-		return book;
+			restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+			Book book = restTemplate.getForObject(GET_BOOK_BY_ID_API, Book.class, param);
+
+			return book;
+		} catch (Exception e) {
+			return null;
+		}
 
 	}
 

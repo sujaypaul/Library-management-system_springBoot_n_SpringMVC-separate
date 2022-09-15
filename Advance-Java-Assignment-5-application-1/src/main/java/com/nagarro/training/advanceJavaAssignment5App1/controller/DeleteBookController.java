@@ -12,7 +12,8 @@ public class DeleteBookController {
 	@RequestMapping(value = "delete")
 	public String delete(@RequestParam("Id") String code) {
 		
-//		DeleteBookAPI.deleteBook(code);
+		DeleteBookAPI deleteBookAPI = new DeleteBookAPI();
+		deleteBookAPI.deleteBook(code);
 		
 		System.out.println("Book with code: "+ code+" was deleted");
 

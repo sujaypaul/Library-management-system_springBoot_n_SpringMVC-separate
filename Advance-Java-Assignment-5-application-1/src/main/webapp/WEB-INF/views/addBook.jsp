@@ -28,6 +28,7 @@
 	<div style="text-align: center; margin-top: 2%; margin-bottom: 2%;">
 		<h2>Add Book Details</h2>
 	</div>
+	<div style="text-align: center;"><b style="color:red; ">${error}</b></div>
 	<div>
 		<form action="add" method="post" modelAttribute="book" "width: 60%;" class="container">
 			<div class="row pb-3">
@@ -35,7 +36,7 @@
 					<label for="title">Book Code</label>
 				</div>
 				<div class="col">
-					<input type="text" name="code" id="code" size="50" required />
+					<input type="text" name="code" id="code" size="50" required pattern="[a-zA-Z0-9]+"/>
 				</div>
 			</div>
 			<div class="row pb-3">
@@ -71,7 +72,7 @@
 					<label for="image">Added On</label>
 				</div>
 				<div class="col">
-					<input type="text" name="date" id="date" size="50" readonly="readonly" style="color: #535151; background-color: #efe9de; border-radius: 8px; border-color: #a19d9d;" />
+					<input type="text" name="date" id="date" size="50" readonly="readonly" style="color: #535151; border-style: none;" />
 				</div>
 			</div>
 

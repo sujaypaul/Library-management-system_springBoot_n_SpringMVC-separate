@@ -9,7 +9,7 @@ import com.nagarro.training.advanceJavaAssignment5App1.model.Book;
 
 public class AddBookAPI {
 	
-	public static void addBook(Book book) {
+	public void addBook(Book book) {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		

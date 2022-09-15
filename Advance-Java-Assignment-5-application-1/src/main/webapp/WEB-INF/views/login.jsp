@@ -13,7 +13,7 @@
     <title>Login</title>
 </head>
 <body>
-
+<jsp:include page="header.jsp"></jsp:include>
 <div class="container" style="width:40%; margin-top:10%">
     <div class="row">
 		<div class="span6">
@@ -51,6 +51,7 @@
 		</div>
 	</div>
 </div>
+
 
 </body>
 </html>

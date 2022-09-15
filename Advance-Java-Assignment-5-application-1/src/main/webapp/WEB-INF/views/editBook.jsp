@@ -30,15 +30,15 @@
 		
 	</div>
 	<div>
-		<form action="update" method="post" style="width: 60%;"
+		<form action="update" method="post" modelAttribute="book" style="width: 60%;"
 			class="container">
 			<div class="row pb-3">
 				<div class="col-sm-3">
 					<label for="title">Book Code</label>
 				</div>
 				<div class="col">
-					<input type="text" name="code" id="code" size="50" value="${book.getCode()}" disabled
-					readonly="readonly" style="color: #535151; background-color: #efe9de; border-radius: 8px; border-color: #a19d9d;" />
+					<input type="text" name="code" id="code" size="50" value="${book.getCode()}" 
+					readonly="readonly" style="color: #535151; border-style: none;" />
 				</div>
 			</div>
 			<div class="row pb-3">
@@ -55,7 +55,7 @@
 				</div>
 				<div class="col">
 					<select name="author" id="autor" style="width:48%;" required>
-						<option value="${book.getAuthor().getName()}" disabled>${book.getAuthor().getName()}</option>
+						<option value="${book.getAuthor().getName()}" style="color: #535151; background-color: #efe9de;">${book.getAuthor().getName()}</option>
 						
 						<c:if test="${authors!=null}">
 			
@@ -75,8 +75,8 @@
 					<label for="image">Added On</label>
 				</div>
 				<div class="col">
-					<input type="text" name="date" id="date" size="50" value="${book.getDate()}" disabled 
-					readonly="readonly" style="color: #535151; background-color: #efe9de; border-radius: 8px; border-color: #a19d9d;"/>
+					<input type="text" name="date" id="date" size="50" value="${book.getDate()}"  
+					readonly="readonly" style="color: #535151; border-style: none;"/>
 				</div>
 			</div>
 

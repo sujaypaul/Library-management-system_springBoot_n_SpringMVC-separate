@@ -24,8 +24,8 @@ public class HomeController {
 		if (request.getAttribute("usr", WebRequest.SCOPE_SESSION) == null) {
 			return "redirect:loginpage";
 		}
-		
-		List<Book> books = AllBooksAPI.getAllBooks();
+		AllBooksAPI allBooksAPI = new AllBooksAPI();
+		List<Book> books = allBooksAPI.getAllBooks();
 		model.addAttribute("books", books);
 		
 		

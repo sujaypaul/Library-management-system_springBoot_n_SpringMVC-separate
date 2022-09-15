@@ -15,9 +15,9 @@ import org.springframework.http.ResponseEntity;
 
 public class AllBooksAPI {
 
-	private static RestTemplate restTemplate = new RestTemplate();
 
-	public static List<Book> getAllBooks() {
+	public List<Book> getAllBooks() {
+		RestTemplate restTemplate = new RestTemplate();
 
 		ResponseEntity<List<Book>> responseEntity = restTemplate.exchange(GET_ALL_BOOKS_API, HttpMethod.GET, null,
 				new ParameterizedTypeReference<List<Book>>() {
