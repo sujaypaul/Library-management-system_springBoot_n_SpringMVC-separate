@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,6 +21,16 @@ import com.nagarro.training.advanceJavaAssignment5App1.model.Book;
 
 @Controller
 public class AddBookController {
+	
+	final AddBookAPI addBookAPI;
+	final AuthorsAPI authorAPI;
+	final BookByIdAPI bookById;
+	
+	public AddBookController(AddBookAPI addBookAPI, AuthorsAPI authorAPI, BookByIdAPI bookById) {
+		this.addBookAPI = addBookAPI;
+		this.authorAPI = authorAPI;
+		this.bookById = bookById;
+	}
 
 	@RequestMapping(value = "addBook", method = RequestMethod.POST)
 	public String addBookPage(Model model, WebRequest request) {
@@ -28,7 +39,6 @@ public class AddBookController {
 			return "redirect:login";
 		}
 
-		AuthorsAPI authorAPI = new AuthorsAPI();
 		List<Author> authors = authorAPI.getAuthors();
 		model.addAttribute("authors", authors);
 
@@ -45,7 +55,6 @@ public class AddBookController {
 
 	@PostMapping(value = "add")
 	public String update(Model model,@ModelAttribute("book") @Valid Book book) {
-		BookByIdAPI bookById = new BookByIdAPI();
 		
 		
 		if(bookById.getBook(book.getCode()) != null) {
@@ -57,7 +66,6 @@ public class AddBookController {
 			model.addAttribute("authors", authors);
 			return "addBook";
 		}
-		AddBookAPI addBookAPI = new AddBookAPI();
 		addBookAPI.addBook(book);
 		
 		System.out.println("book with code "+book.getCode()+" was added.");

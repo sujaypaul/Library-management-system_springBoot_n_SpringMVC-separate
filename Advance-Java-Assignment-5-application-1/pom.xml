@@ -8,6 +8,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Advance-Java-Assignment-5-application-1 Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -15,6 +17,18 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-test</artifactId>
+		    <version>2.6.2</version> 
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+	        <groupId>org.mockito</groupId>
+	        <artifactId>mockito-core</artifactId>
+	        <version>5.8.0</version>
+	        <scope>test</scope>
+	    </dependency>
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -73,9 +87,29 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.13.3</version>
 		</dependency>
+		
 
 	</dependencies>
 	<build>
+	<plugins>
+		<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.3.2</version> <!-- Use the latest version -->
+            <configuration>
+                <!-- Configure plugin settings, if needed -->
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version> <!-- Use the latest version of the plugin -->
+            <configuration>
+                <source>11</source>
+                <target>11</target>
+            </configuration>
+        </plugin>
+    </plugins>
 		<finalName>Advance-Java-Assignment-5-application-1</finalName>
 	</build>
 </project>

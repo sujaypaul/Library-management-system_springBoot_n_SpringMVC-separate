@@ -16,8 +16,8 @@
 
 	<mvc:annotation-driven />
 
-	<context:component-scan
-		base-package="com.nagarro.training.advanceJavaAssignment5App1.controller" />
+    <!-- Scan for components in the specified packages -->
+    <context:component-scan base-package="com.nagarro.training.advanceJavaAssignment5App1.controller, com.nagarro.training.advanceJavaAssignment5App1.apiHandler, com.nagarro.training.advanceJavaAssignment5App1.config" />
 
 	<!-- Here goes the view resolver -->
 

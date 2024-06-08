@@ -10,9 +10,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookService {
 
+
+	private final BookRepository bookRepository;
+
 	@Autowired
-	private BookRepository bookRepository;
-	
+	public BookService(BookRepository bookRepository) {
+		this.bookRepository = bookRepository;
+	}
+
+
 	public List<Book> getAllBooks() {
 		List<Book> books = new ArrayList<>();
 		bookRepository.findAll()
