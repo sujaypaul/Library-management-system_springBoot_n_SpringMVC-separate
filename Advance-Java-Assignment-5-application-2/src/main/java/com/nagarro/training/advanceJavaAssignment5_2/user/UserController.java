@@ -10,13 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-	
-	private final UserRepository userRepository;
-
 	@Autowired
-	public UserController(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
+	private UserRepository userRepository;
 
 	@RequestMapping("user/{id}")
 	public Optional<User> getUser(@PathVariable String id) {

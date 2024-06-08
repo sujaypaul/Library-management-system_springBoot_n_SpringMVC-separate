@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <header
-	style="background-color: #5a88c9; border-style: solid; border-color: #5a88c9;">
+	style="background-image: linear-gradient(#5a88c9, white); border-style: solid; border-color: #5a88c9;">
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header"

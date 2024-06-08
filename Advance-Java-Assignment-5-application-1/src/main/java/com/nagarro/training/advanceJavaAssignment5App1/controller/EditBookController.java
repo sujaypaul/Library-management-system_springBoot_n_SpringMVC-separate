@@ -50,9 +50,4 @@ public class EditBookController {
 		return "redirect:home";
 	}
 
-	protected BookByIdAPI createBookByIdAPI() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

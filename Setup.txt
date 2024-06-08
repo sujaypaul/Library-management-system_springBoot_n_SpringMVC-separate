@@ -1,7 +1,0 @@
-Run App 1 (Spring MVC) on tomcat.
-
-create database "assignment5"
-
-Run App 2 (Spring Boot)
-
-Add to user [username: 'test', password: '1234'] to the user table in assignment5
